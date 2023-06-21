@@ -121,10 +121,10 @@ def apply(tbl, transform): return list(map(transform, tbl))
 
 
 def get_people_like(tbl, name):
-    return where(tbl, lambda row: name in row["name"].lower())
+    return where(tbl, lambda row: name.casefold() in row["name"].casefold())
 
 def get_person(tbl, name):
-    return where(tbl, lambda row: row["name"].lower() == name)[0]
+    return where(tbl, lambda row: row["name"].casefold() == name.casefold())[0]
 
 
 def get_person_group(tbl, person):
